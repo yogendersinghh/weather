@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import "./App.css"
+import axios from 'axios';
+import Card from './Card';
 
-function App() {
+
+
+const App = () => {
+  const [Weather,setWeather] = useState("");
+  const [tog ,setTog] = useState(false);
+
+  const [showData,setShowData] = useState({name:'',temp:'',result:'',icon:'',dailys:[]})
+  
+  const key = "6d6020cfb149e6f2302954d8b2286ca1";
+  let data;
+  const getData = async()=>{
+    data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Weather}&appid=${key}`)
+    // console.log(data)
+    const dailys = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.data.coord.lat}&lon=${data.data.coord.lon}&appid=${key}`)
+    dailys.data.daily.forEach((elem)=>{
+      // console.log(elem)
+         showData.dailys.push(elem)
+      
+    })
+    const celsius = Math.floor(data.data.main.temp - 273.15);
+    // console.log(empty)
+    setShowData({
+      ...showData,
+      name:data.data.name,
+      temp:celsius,
+      result:data.data.weather[0].main,
+      icon:data.data.weather[0].icon
+     
+    })
+    console.log(showData.dailys)
+    setTog(true)
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <input type="text" id="try" value={Weather} onChange={(e)=>{setWeather(e.target.value)}} placeholder="Enter Your City Name" autoComplete="off"/>
+       <button id="btn" type="submit" onClick = {getData}><i className="fas fa-search"></i></button>
+       
+    { tog && <Card name ={showData.name} temp = {showData.temp} result = {showData.result} icon={showData.icon} dailys={showData.dailys}/>}
+    </>
+  )
 }
 
-export default App;
+export default App
+
