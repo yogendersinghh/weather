@@ -81,7 +81,7 @@ const Card = ({ name, temp, result, icon, dailys }) => {
                           src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
                           alt="icons"
                         />
-                        <p className="">{temperature}</p>
+                        <p className="">{temperature} <span className="symbol">°</span>C </p>
                       </div><hr />
                       
                   {/* {console.log("yyyy")} */}

@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "./App.css"
 import axios from 'axios';
 import Card from './Card';
-
 
 
 const App = () => {
@@ -17,9 +16,10 @@ const App = () => {
     data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Weather}&appid=${key}`)
     // console.log(data)
     const dailys = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.data.coord.lat}&lon=${data.data.coord.lon}&appid=${key}`)
+    showData.dailys.length = 0;
     dailys.data.daily.forEach((elem)=>{
       // console.log(elem)
-         showData.dailys.push(elem)
+       showData.dailys.push(elem)
       
     })
     const celsius = Math.floor(data.data.main.temp - 273.15);
