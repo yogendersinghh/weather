@@ -11,8 +11,7 @@ const date = new Date();
     "Saturday",
   ];
   const weeday = week[day];
-  const todayDate = date.getDate();
-  let newDate = todayDate;
+  
   const month = date.getMonth();
   const monthList = [
     "January",
@@ -32,6 +31,8 @@ const date = new Date();
   const year = date.getFullYear();
 
 const Card = ({ name, temp, result, icon, dailys }) => {
+  const todayDate = date.getDate();
+  let newDate = todayDate;
   
   return (
     <>
@@ -82,7 +83,7 @@ const Card = ({ name, temp, result, icon, dailys }) => {
                           alt="icons"
                         />
                         <p className="">{temperature} <span className="symbol">°</span>C </p>
-                      </div>
+                      </div> <hr />
                       
                   {/* {console.log("yyyy")} */}
                 </>
