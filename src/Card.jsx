@@ -82,7 +82,7 @@ const Card = ({ name, temp, result, icon, dailys }) => {
                           alt="icons"
                         />
                         <p className="">{temperature} <span className="symbol">°</span>C </p>
-                      </div><hr />
+                      </div>
                       
                   {/* {console.log("yyyy")} */}
                 </>
