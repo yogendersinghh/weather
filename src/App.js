@@ -16,7 +16,7 @@ const App = () => {
   const key = "6d6020cfb149e6f2302954d8b2286ca1";
   let data;
   const getData = async()=>{
-    const weather = initialValue.current.value
+    const weather = initialValue.current.value;
     data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${weather}&appid=${key}`)
     // console.log(data)
     const dailys = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.data.coord.lat}&lon=${data.data.coord.lon}&appid=${key}`)
