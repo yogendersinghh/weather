@@ -1,49 +1,48 @@
 import React from "react";
 const date = new Date();
-  const day = date.getDay();
-  const week = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const weeday = week[day];
-  
-  const month = date.getMonth();
-  const monthList = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const newMonth = monthList[month];
-  const year = date.getFullYear();
+const day = date.getDay();
+const week = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const weeday = week[day];
+
+const month = date.getMonth();
+const monthList = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const newMonth = monthList[month];
+const year = date.getFullYear();
 
 const Card = ({ name, temp, result, icon, dailys }) => {
   const todayDate = date.getDate();
   let newDate = todayDate;
-  
+
   return (
     <>
-    {console.log(todayDate)}
+      {console.log(todayDate)}
       {console.log("card")}
       <div className="card card-weather">
         <div className="card-body">
           <div className="weather-date-location">
             <h3>{weeday}</h3>
             <p className="text-gray">
-              
               <span className="weather-date">
                 {todayDate} {newMonth}, {year}
               </span>
@@ -66,30 +65,30 @@ const Card = ({ name, temp, result, icon, dailys }) => {
             </div>
           </div>
         </div>
-        </div>
+      </div>
       {/* {console.log(dailys)} */}
       <div className="card-container">
-      {dailys.map((daily) => {
+        {dailys.map((daily) => {
           // console.log(daily.temp.day)
-          let temperature = Math.floor(daily.temp.day - 273.15)
+          let temperature = Math.floor(daily.temp.day - 273.15);
           return (
-                <>   
-                      <div className="card-container-main">
-                        <p className="">{
-                          ++newDate
-                        } </p>
-                        <img
-                          src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
-                          alt="icons"
-                        />
-                        <p className="">{temperature} <span className="symbol">°</span>C </p>
-                      </div> <hr />
-                      
-                  {/* {console.log("yyyy")} */}
-                </>
-              );
-        })}</div>
-       
+            <>
+              <div className="card-container-main">
+                <p className="">{++newDate} </p>
+                <img
+                  src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
+                  alt="icons"
+                />
+                <p className="">
+                  {temperature} <span className="symbol">°</span>C{" "}
+                </p>
+              </div>{" "}
+              <hr />
+              {/* {console.log("yyyy")} */}
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
