@@ -3,9 +3,17 @@
     min-width: 100%
 }
 
+  
+    /* --vv-dds:linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%); */
+    /* background: #2980B9;  fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  Chrome 10-25, Safari 5.1-6 */
+/* background:; W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 body {
-    background-image: linear-gradient(to right, #2af598, #009efd);
-    display: flex;
+    /* --linear-gradient: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); */
+    /* background-image: linear-gradient(to right, #2af598, #009efd); */
+    background:#B8E4F0
+    /* display: flex;
+    justify-content: center; */
 }
 
 .flex {
@@ -46,8 +54,9 @@ body {
 }
 
 .card {
+    /* border-radius: 25px; */
     margin-top: 1rem;
-    margin-left: 20rem;
+    margin-left: 22rem;
     width: 600px;
     position: relative;
     display: flex;
@@ -56,8 +65,8 @@ body {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem
+    /* border: 1px solid rgba(0, 0, 0, 0.125); */
+    border-radius:25px;
 }
 
 .card-weather .card-body:first-child {
@@ -161,27 +170,52 @@ margin-left:17rem;
 border:2px solid #9D9D9D;
 }
 #try{
-    margin-top:5rem;
-    margin-left:20rem;
+    /* margin-top:5rem; */
+    margin-left:22rem;
     padding:0.5rem 10rem;
     border: none;
+    border-radius: 25px;
 }
 #try:focus{
   border: none;
   outline: 1px solid var();
 }
 #btn{
-    background-color: #7FC8A9;
+    background-color:#D3E4CD;
     border: none;
+    border-radius: 25px;
     padding:0.5rem 2rem;
 }
 .card-container{
+    border-radius: 25px;
     padding: 0.5rem;
     margin-top: 0.5rem;
     background-image: linear-gradient(to right,#accbee , #e7f0fd);
-    margin-left: 20rem;
+    margin-left: 22rem;
     width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.logo{
+    color: transparent;
+    background:var(--linear-gradient);
+    background-clip: text;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+.top{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* hei */
+}
+.fa-cloud{
+    padding-left: 12px;
+    text-align: center;
+    color:skyblue;
+    font-size: 40px;
 }

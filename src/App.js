@@ -44,6 +44,12 @@ const App = () => {
   }
   return (
     <>
+    <div className='top'>
+    
+      <p className='logo'>WeatherCast</p>
+      <p><i class="fas fa-cloud"></i></p>
+    </div>
+    
       <input type="text" id="try" ref={initialValue} placeholder="Enter Your City Name" autoComplete="off"/>
        <button id="btn" type="submit" onClick = {getData}><i className="fas fa-search"></i></button>
        
